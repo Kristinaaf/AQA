@@ -1,17 +1,27 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        System.out.println("=== Задание 1 и 2: Массив товаров ===");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Product[] productsArray = new Product[5];
+
+        productsArray[0] = new Product("Samsung S25 Ultra", "01.02.2025", "Samsung Corp.", "Korea", 5599.0, true);
+        productsArray[1] = new Product("iPhone 15 Pro", "15.09.2024", "Apple Inc.", "China", 4800.0, false);
+        productsArray[2] = new Product("Xiaomi 14", "10.01.2025", "Xiaomi", "China", 3200.0, true);
+        productsArray[3] = new Product("Google Pixel 8", "04.10.2024", "Google LLC", "Vietnam", 3999.0, false);
+        productsArray[4] = new Product("OnePlus 12", "05.12.2024", "BBK Electronics", "China", 3500.0, false);
+
+        for (Product product : productsArray) {
+            product.printInfo();
         }
+
+        System.out.println("\n=== Задание 3: Парк с вложенным классом ===");
+
+        Park.Attraction attraction1 = new Park.Attraction("Колесо обозрения", "10:00 - 22:00", 500.0);
+        Park.Attraction attraction2 = new Park.Attraction("Американские горки", "11:00 - 21:00", 800.0);
+
+        attraction1.printAttractionInfo();
+        attraction2.printAttractionInfo();
     }
 }
