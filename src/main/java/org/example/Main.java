@@ -1,158 +1,27 @@
 package org.example;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println("--- Задание 1 ---");
-        printThreeWords();
+        System.out.println("=== Задание 1 и 2: Массив товаров ===");
 
-        System.out.println("\n--- Задание 2 ---");
-        checkSumSign();
+        Product[] productsArray = new Product[5];
 
-        System.out.println("\n--- Задание 3 ---");
-        printColor();
+        productsArray[0] = new Product("Samsung S25 Ultra", "01.02.2025", "Samsung Corp.", "Korea", 5599.0, true);
+        productsArray[1] = new Product("iPhone 15 Pro", "15.09.2024", "Apple Inc.", "China", 4800.0, false);
+        productsArray[2] = new Product("Xiaomi 14", "10.01.2025", "Xiaomi", "China", 3200.0, true);
+        productsArray[3] = new Product("Google Pixel 8", "04.10.2024", "Google LLC", "Vietnam", 3999.0, false);
+        productsArray[4] = new Product("OnePlus 12", "05.12.2024", "BBK Electronics", "China", 3500.0, false);
 
-        System.out.println("\n--- Задание 4 ---");
-        compareNumbers();
-
-        System.out.println("\n--- Задание 5 ---");
-        System.out.println(isSumInRange(5, 10));
-
-        System.out.println("\n--- Задание 6 ---");
-        printNumberSign(0);
-
-        System.out.println("\n--- Задание 7 ---");
-        System.out.println(isNegative(-5));
-
-        System.out.println("\n--- Задание 8 ---");
-        printStringMultipleTimes("Привет", 3);
-
-        System.out.println("\n--- Задание 9 ---");
-        System.out.println(isLeapYear(2024));
-
-        System.out.println("\n--- Задание 10 ---");
-        int[] binaryArray = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        invertArray(binaryArray);
-        System.out.println(Arrays.toString(binaryArray));
-
-        System.out.println("\n--- Задание 11 ---");
-        int[] hundredArray = new int[100];
-        fillArray(hundredArray);
-        System.out.println("Массив заполнен от 1 до 100. Первый элемент: " + hundredArray[0]);
-
-        System.out.println("\n--- Задание 12 ---");
-        int[] twelveArray = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        multiplyLessThanSix(twelveArray);
-        System.out.println(Arrays.toString(twelveArray));
-
-        System.out.println("\n--- Задание 13 ---");
-        int[][] matrix = new int[5][5];
-        fillDiagonal(matrix);
-        for (int[] row : matrix) {
-            System.out.println(Arrays.toString(row));
+        for (Product product : productsArray) {
+            product.printInfo();
         }
 
-        System.out.println("\n--- Задание 14 ---");
-        int[] customArray = createArray(5, 7);
-        System.out.println(Arrays.toString(customArray));
-    }
+        System.out.println("\n=== Задание 3: Парк с вложенным классом ===");
 
-    public static void printThreeWords() {
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
-    }
+        Park.Attraction attraction1 = new Park.Attraction("Колесо обозрения", "10:00 - 22:00", 500.0);
+        Park.Attraction attraction2 = new Park.Attraction("Американские горки", "11:00 - 21:00", 800.0);
 
-    public static void checkSumSign() {
-        int a = 5;
-        int b = -3;
-        int sum = a + b;
-        if (sum >= 0) {
-            System.out.println("Сумма положительная");
-        } else {
-            System.out.println("Сумма отрицательная");
-        }
-    }
-
-    public static void printColor() {
-        int value = 101;
-        if (value <= 0) {
-            System.out.println("Красный");
-        } else if (value > 0 && value <= 100) {
-            System.out.println("Желтый");
-        } else {
-            System.out.println("Зеленый");
-        }
-    }
-
-    public static void compareNumbers() {
-        int a = 10;
-        int b = 5;
-        if (a >= b) {
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a < b");
-        }
-    }
-
-    public static boolean isSumInRange(int a, int b) {
-        int sum = a + b;
-        return sum >= 10 && sum <= 20;
-    }
-
-    public static void printNumberSign(int number) {
-        if (number >= 0) {
-            System.out.println("Число положительное");
-        } else {
-            System.out.println("Число отрицательное");
-        }
-    }
-
-    public static boolean isNegative(int number) {
-        return number < 0;
-    }
-
-    public static void printStringMultipleTimes(String str, int times) {
-        for (int i = 0; i < times; i++) {
-            System.out.println(str);
-        }
-    }
-
-    public static boolean isLeapYear(int year) {
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-    }
-
-    public static void invertArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (arr[i] == 0) ? 1 : 0;
-        }
-    }
-
-    public static void fillArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i + 1;
-        }
-    }
-    public static void multiplyLessThanSix(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 6) {
-                arr[i] *= 2;
-            }
-        }
-    }
-
-    public static void fillDiagonal(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            matrix[i][i] = 1;
-        }
-    }
-
-    public static int[] createArray(int len, int initialValue) {
-        int[] arr = new int[len];
-        for (int i = 0; i < len; i++) {
-            arr[i] = initialValue;
-        }
-        return arr;
+        attraction1.printAttractionInfo();
+        attraction2.printAttractionInfo();
     }
 }
